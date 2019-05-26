@@ -1,14 +1,14 @@
 import React from 'react';
-import {TouchableOpacity, Text, ScrollView, StyleSheet} from 'react-native'
+import {TouchableHighlight, Text, ScrollView, StyleSheet} from 'react-native'
 
 export default Towns = ({getWeather}) => {
     const towns = ['Paris', 'New York', 'Londres', 'Tokyo', 'Moscou']
     return (
         <ScrollView horizontal contentContainerStyle={styles.container} showsHorizontalScrollIndicator={false}>
         {towns.map(town => (
-            <TouchableOpacity key={town} style={styles.town} onPress={() => getWeather(town)}>
-                <Text>{town}</Text>
-            </TouchableOpacity>
+            <TouchableHighlight key={town} style={styles.town} onPress={() => getWeather(town)}>
+                <Text style={styles.text}>{town}</Text>
+            </TouchableHighlight>
         ))}
         </ScrollView>
     )
@@ -26,6 +26,20 @@ const styles = StyleSheet.create({
         margin: 5,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#eee'
+        backgroundColor: '#8774A6',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+
+        elevation: 4,
+    },
+    text: {
+        color: '#ffffff',
+        fontSize: 20,
+        fontFamily: 'averta-semi'
     }
 })

@@ -1,9 +1,18 @@
 import React from "react"
-import { StyleSheet, Image, View } from "react-native"
+import { StyleSheet, Image, View, StatusBar } from "react-native"
+import {Font} from 'expo'
 
 export default class PageConnect extends React.Component {
   constructor(props) {
     super(props)
+  }
+
+  async componentDidMount() {
+    await Font.loadAsync({
+      'averta': require('../assets/fonts/averta-light-webfont.ttf'),
+      'averta-semi': require('../assets/fonts/averta-semibold-webfont.ttf'),
+      'ionicons': require('../node_modules/@expo/vector-icons/fonts/Ionicons.ttf')
+    });
     this._loadsUserAsync()
   }
 
@@ -15,6 +24,7 @@ export default class PageConnect extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="dark-content" />
         <Image source={require("../assets/icon.png")} style={styles.image} />
       </View>
     )

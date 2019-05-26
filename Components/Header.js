@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import {View, TouchableOpacity, StyleSheet, Text} from 'react-native'
+import {Ionicons} from '@expo/vector-icons'
 
 export default class Header extends Component {
     render() {
         return (
             <View style={styles.container}>
                 <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.goBack()}>
-                    <Text style={styles.buttonText} >Retour</Text>
+                    <Ionicons size={32} name="md-arrow-back" />
                 </TouchableOpacity>
-                <Text style={styles.title}>{this.props.navigation.state.routeName}</Text>
+                <Text style={styles.title}>{this.props.town}</Text>
             </View>
         )
     }
@@ -18,12 +19,14 @@ const styles = StyleSheet.create({
     container: {
         height: 70,
         flexDirection: 'row',
-        alignItems: 'center'
+        backgroundColor: '#eee',
+        alignItems: 'center',
+        paddingTop: 20,
     },
     button: {
-        backgroundColor: '#ffffff',
-        padding: 20,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 70,
     },
     buttonText: {
         color: '#000000'

@@ -64,10 +64,9 @@ export default class PageAccueil extends Component {
   render() {
     let { loading, town, error } = this.state
     return (
-      <React.Fragment>
-        <Header navigation={this.props.navigation} />
+      <View style={styles.bg}>
+        <Header navigation={this.props.navigation} town={this.state.town} />
         <View style={styles.container}>
-          <Text>{town}</Text>
           {loading ? (
             <Text>Chargement</Text>
           ) : error ? (
@@ -76,8 +75,7 @@ export default class PageAccueil extends Component {
             <Weather {...this.state} />
           )}
         </View>
-        <Towns getWeather={this.getWeatherData} />
-      </React.Fragment>
+      </View>
     )
   }
 }
@@ -95,6 +93,14 @@ const Error = ({ error, refresh }) => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 20
+    padding: 20,
+    borderTopEndRadius: 50,
+    borderTopStartRadius: 50,
+    backgroundColor: '#fff'
+  },
+  bg: {
+    height: '100%',
+    backgroundColor: '#eee',
+    flex: 1,
   }
 })
